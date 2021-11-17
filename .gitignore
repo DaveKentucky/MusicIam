@@ -6,6 +6,7 @@
 .pnp.js
 venv
 __pycache__
+.flaskenv
 
 # testing
 /coverage
@@ -19,6 +20,7 @@ __pycache__
 .env.development.local
 .env.test.local
 .env.production.local
+
 
 npm-debug.log*
 yarn-debug.log*
