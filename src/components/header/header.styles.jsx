@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import TextField from '@mui/material/TextField';
+
 
 export const HeaderContainer = styled.div`
     height: 70px;
@@ -8,8 +10,18 @@ export const HeaderContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0 10px;
 `;
 
 export const LogoContainer = styled.div`
-    padding: 10px;
+    cursor: pointer;
+`;
+
+export const TextFieldContainer = styled(TextField)`
+    background-color: #ffd730ff;
+    overflow: hidden;
+
+    &:focus {
+        outline: none;
+    }
 `;
