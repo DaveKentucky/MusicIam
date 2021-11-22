@@ -4,8 +4,8 @@ import TextField from '@mui/material/TextField';
 
 
 export const HeaderContainer = styled.div`
-    height: 70px;
-    background-color: #3b3b3b;
+    height: 60px;
+    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -15,6 +15,8 @@ export const HeaderContainer = styled.div`
 `;
 
 export const LogoContainer = styled.div`
+    display: flex;
+    align-items: center;
     cursor: pointer;
 `;
 

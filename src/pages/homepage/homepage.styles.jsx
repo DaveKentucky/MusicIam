@@ -40,7 +40,9 @@ export const MainTextContainer = styled.div`
 
 export const HomepageContentContainer = styled.div`
     background-color: #713987;
-    height: 300px;
     z-index: 3;
     box-shadow: 0px -3px 14px 7px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;

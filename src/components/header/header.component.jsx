@@ -1,14 +1,15 @@
+// libraries
 import React from 'react';
-
-import { ReactComponent as Logo } from '../../assets/logo.svg';
-import Headroom from 'react-headroom';
-
-
+// styles
 import {
     HeaderContainer,
     LogoContainer,
     TextFieldContainer
 } from './header.styles';
+// components
+import { ReactComponent as Logo } from '../../assets/logo.svg';
+import Headroom from 'react-headroom';
+
 
 const Header = () => {
     return (
