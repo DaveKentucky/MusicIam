@@ -3,7 +3,8 @@ import React from 'react';
 import {
     HomepageContainer,
     MainImageContainer,
-    MainTextContainer
+    MainTextContainer,
+    HomepageContentContainer
 } from './homepage.styles';
 
 
@@ -16,8 +17,10 @@ const Homepage = () => {
                         Find the music you love
                     </h1>
                 </MainTextContainer>
-                {/* <img src='/headphones.jpg' alt='headphones' /> */}
             </MainImageContainer>
+            <HomepageContentContainer>
+                
+            </HomepageContentContainer>
         </HomepageContainer>
     );
 };

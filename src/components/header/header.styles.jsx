@@ -11,6 +11,7 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
+    font-family: 'Poppins', sans-serif;
 `;
 
 export const LogoContainer = styled.div`
@@ -20,8 +21,5 @@ export const LogoContainer = styled.div`
 export const TextFieldContainer = styled(TextField)`
     background-color: #ffd730ff;
     overflow: hidden;
-
-    &:focus {
-        outline: none;
-    }
+    width: 300px;
 `;

@@ -13,6 +13,7 @@ export const MainImageContainer = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
+    z-index: 1;
 
     img {
         visibility: hidden;
@@ -35,4 +36,11 @@ export const MainTextContainer = styled.div`
     h1 {
         width: 70%;
     }
+`;
+
+export const HomepageContentContainer = styled.div`
+    background-color: #713987;
+    height: 300px;
+    z-index: 3;
+    box-shadow: 0px -3px 14px 7px rgba(0,0,0,0.8);
 `;

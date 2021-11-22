@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ReactComponent as Logo } from '../../assets/logo.svg';
+import Headroom from 'react-headroom';
 
 
 import {
@@ -11,18 +12,21 @@ import {
 
 const Header = () => {
     return (
-        <HeaderContainer>
-            <LogoContainer>
-                <Logo />
-            </LogoContainer>
-            <TextFieldContainer
-                id='search-field'
-                type='search'
-                variant='filled'
-                placeholder='Search'
-                color='warning'
-            />
-        </HeaderContainer>
+        <Headroom>
+            <HeaderContainer>
+                <LogoContainer>
+                    <Logo />
+                </LogoContainer>
+                <TextFieldContainer
+                    id='search-field'
+                    type='search'
+                    variant='filled'
+                    placeholder='Search'
+                    color='warning'
+                    size='small'
+                />
+            </HeaderContainer>
+        </Headroom>
     );
 };
 
