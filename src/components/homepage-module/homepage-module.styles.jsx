@@ -7,7 +7,7 @@ export const ModuleContainer = styled.div`
     align-items: center;
     width: 70%;
     margin-top: 30px;
-    border: solid 2px transparent;
+    border: solid 3px transparent;
     
     &:nth-child(even) {
         border: solid 3px;
@@ -17,10 +17,10 @@ export const ModuleContainer = styled.div`
 
     &:hover {
         cursor: pointer;
-        border-color: #16e999ff;
+        border-color: #ffd730ff;
 
         img {
-            opacity: 0.7;
+            opacity: 0.6;
         }
     }
 `;
@@ -32,6 +32,7 @@ export const ModuleImageContainer = styled.div`
 export const ModuleImage = styled.img`
     height: 100%;
     width: auto;
+    background-color: #ffd730ff;
 `;
 
 export const ModuleTitleContainer = styled.div`
@@ -42,6 +43,6 @@ export const ModuleTitleContainer = styled.div`
 `;
 
 export const ModuleTitle = styled.h2`
-    font-size: 90px;
+    font-size: 80px;
     color: black;
 `;

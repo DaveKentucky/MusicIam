@@ -5,7 +5,7 @@ import Homepage from './pages/homepage/homepage.component';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <Header />
       <Homepage />
     </div>
