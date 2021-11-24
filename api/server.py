@@ -3,9 +3,9 @@ import requests
 import os
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+from bs4 import BeautifulSoup
 
-
-app = Flask(__name__)
+app = Flask('server')
 
 genius_rapidapi_url = 'https://genius.p.rapidapi.com'
 
@@ -50,7 +50,7 @@ def get_search_genius():
 
     response = requests.request("GET", url, headers=headers, params=search_query)
 
-    return response.text
+    return response.json()
 
 @app.route('/songs/<song_id>')
 def get_song(song_id):
@@ -62,7 +62,7 @@ def get_song(song_id):
 
     response = requests.request("GET", url, headers=headers)
 
-    return response.text
+    return response.json()
 
 @app.route('/artists/<artist_id>')
 def get_artist(artist_id):
@@ -74,7 +74,7 @@ def get_artist(artist_id):
 
     response = requests.request("GET", url, headers=headers)
 
-    return response.text
+    return response.json()
 
 @app.route('/artists/<artist_id>/songs')
 def get_artist_songs(artist_id):
@@ -86,7 +86,28 @@ def get_artist_songs(artist_id):
     
     response = requests.request("GET", url, headers=headers)
 
-    return response.text
+    return response.json()
+
+@app.route('/songs/<song_id>/lyrics')
+def get_song_lyrics(song_id):
+    res = get_song(song_id)
+    path = res['response']['song']['path']
+    page_url = 'https://genius.com' + path
+
+    # repeat in case no valid response was received from Genius
+    while True:
+        page = requests.get(page_url)
+        html = BeautifulSoup(page.text, 'lxml')
+        # remove script tags that they put in the middle of the lyrics
+        [h.extract() for h in html('script')]
+        # get content of the 'lyrics' div
+        lyrics_soup = html.find('div', class_='lyrics')
+        # BeautifulSoup find() returns None if no results were found
+        if lyrics_soup is not None:
+            lyrics = lyrics_soup.get_text()
+            break
+
+    return lyrics
 
 @app.route('/track/')
 def get_spotify_track():
