@@ -4,17 +4,13 @@ import os
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from bs4 import BeautifulSoup
+from utils import get_random_id, search_genius
+import re
+import json
 
 app = Flask('server')
 
 genius_rapidapi_url = 'https://genius.p.rapidapi.com'
-
-def get_key_value_pair_from_dict(dictionary, key):
-    key = [k for k in dictionary.items() if k[0] == key]
-    if key:
-        return key[0]
-    else:
-        return None
 
 @app.route('/authors')
 def get_authors():
@@ -33,12 +29,6 @@ def get_authors():
 
 @app.route('/search')
 def get_search_genius():
-    url = genius_rapidapi_url + '/search'
-    headers = {
-        'x-rapidapi-host': os.environ.get('GENIUS_API_HOST'),
-        'x-rapidapi-key': os.environ.get('GENIUS_API_KEY')
-    }
-
     try:
         search_param = request.args.get('search')
         if search_param == None:
@@ -48,9 +38,8 @@ def get_search_genius():
     except Exception:
         print('An error occured')
 
-    response = requests.request("GET", url, headers=headers, params=search_query)
-
-    return response.json()
+    response = search_genius(search_query, 2)
+    return json.dumps(response)
 
 @app.route('/songs/<song_id>')
 def get_song(song_id):
@@ -108,6 +97,41 @@ def get_song_lyrics(song_id):
             break
 
     return lyrics
+
+@app.route('/hot')
+def get_hot_tracks():
+    page_url = 'https://genius.com/#top-songs'
+    search_queries = []
+    while True:
+        page = requests.get(page_url)
+        html = BeautifulSoup(page.text, 'lxml')
+        # remove script tags that they put in the middle of the lyrics
+        [h.extract() for h in html('script')]
+        # get content of all the charts title divs
+        titles_soup = html.findAll('div', class_=re.compile('ChartSongdesktop__Title-sc'))
+        if len(titles_soup) > 0:
+            for title_soup in titles_soup:
+                # extract the title string
+                title = title_soup.get_text()
+                while True:
+                    # get the parent div with title and lyrics, which is sibling to the artist div
+                    parent_soup = title_soup.find_parent('div')
+                    # get the content of artist header
+                    artist_soup = parent_soup.find_next_sibling('h4', class_=re.compile('ChartSongdesktop__Artist-sc'))
+                    if artist_soup is not None:
+                        # extract the artist name string
+                        artist = artist_soup.get_text()
+                        break
+                    # build the search query for Genius API
+                search_queries.append(title + ' ' + artist)
+            break
+
+    songs = []
+    for query in search_queries:
+        search_query = {'q': query}
+        songs.append(search_genius(search_query, 1)[0])
+    return json.dumps(songs)
+    
 
 @app.route('/track/')
 def get_spotify_track():
