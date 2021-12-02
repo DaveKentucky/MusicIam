@@ -25,17 +25,20 @@ export const ModuleContainer = styled.div`
         }
     }
 `;
+ModuleContainer.displayName = 'ModuleContainer';
 
 export const ModuleImageContainer = styled.div`
     height: 600px;
     overflow: hidden;
 `;
+ModuleImageContainer.displayName = 'ModuleImageContainer';
 
 export const ModuleImage = styled.img`
     height: 100%;
     width: auto;
     background-color: #ffd730ff;
 `;
+ModuleImage.displayName = 'ModuleImage';
 
 export const ModuleTitleContainer = styled.div`
     display: flex;
@@ -44,9 +47,11 @@ export const ModuleTitleContainer = styled.div`
     width: 100%;
     position: absolute;
 `;
+ModuleTitleContainer.displayName = 'ModuleTitleContainer';
 
 export const ModuleTitle = styled.h2`
     font-size: 120px;
     color: white;
     opacity: 0.9;
 `;
+ModuleTitle.displayName = 'ModuleTitle';

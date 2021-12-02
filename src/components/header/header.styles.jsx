@@ -13,15 +13,18 @@ export const HeaderContainer = styled.div`
     padding: 0 10px;
     font-family: 'Poppins', sans-serif;
 `;
+HeaderContainer.displayName = 'HeaderContainer';
 
 export const LogoContainer = styled.div`
     display: flex;
     align-items: center;
     cursor: pointer;
 `;
+LogoContainer.displayName = 'LogoContainer';
 
 export const TextFieldContainer = styled(TextField)`
     background-color: #ffd730ff;
     overflow: hidden;
     width: 300px;
 `;
+TextFieldContainer.displayName = 'TextFieldContainer';

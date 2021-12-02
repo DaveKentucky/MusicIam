@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const HomepageContainer = styled.div`
     height: 100vh;
 `;
+HomepageContainer.displayName = 'HomepageContainer';
 
 export const MainImageContainer = styled.div`
     height: 100%;
@@ -20,6 +21,7 @@ export const MainImageContainer = styled.div`
         z-index: 1;
     }
 `;
+MainImageContainer.displayName = 'MainImageContainer';
 
 export const MainTextContainer = styled.div`
     margin: 0;
@@ -37,6 +39,7 @@ export const MainTextContainer = styled.div`
         width: 70%;
     }
 `;
+MainTextContainer.displayName = 'MainText';
 
 export const HomepageContentContainer = styled.div`
     background-color: #713987;
@@ -47,3 +50,4 @@ export const HomepageContentContainer = styled.div`
     align-items: center;
     justify-content: space-around;
 `;
+HomepageContentContainer.displayName = 'HomepageContent';
