@@ -1,5 +1,6 @@
 // libraries
 import React from 'react';
+import { Link } from 'react-router-dom';
 // styles
 import {
     ModuleContainer,
@@ -10,17 +11,19 @@ import {
 } from './homepage-module.styles';
 
 
-const HomepageModule = ({ title, imageUrl, imageDescription }) => {
+const HomepageModule = ({ title, path, imageUrl, imageDescription }) => {
     return (
         <ModuleContainer>
-            <ModuleImageContainer>
-                <ModuleImage src={ imageUrl } alt={ imageDescription } />
-            </ModuleImageContainer>
-            <ModuleTitleContainer>
-                <ModuleTitle>
-                    { title }
-                </ModuleTitle>
-            </ModuleTitleContainer>
+            <Link to={path}>
+                <ModuleImageContainer>
+                    <ModuleImage src={ imageUrl } alt={ imageDescription } />
+                </ModuleImageContainer>
+                <ModuleTitleContainer>
+                    <ModuleTitle>
+                        { title }
+                    </ModuleTitle>
+                </ModuleTitleContainer>
+            </Link>
         </ModuleContainer>
     );
 };
