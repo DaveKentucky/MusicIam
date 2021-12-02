@@ -12,21 +12,6 @@ app = Flask('server')
 
 genius_rapidapi_url = 'https://genius.p.rapidapi.com'
 
-@app.route('/authors')
-def get_authors():
-    return {
-        "authors": [
-            {
-                'id': 1,
-                'name': 'Dawid Marczewski'
-            },
-            {
-                'id': 2,
-                'name': 'Miłosz Łukaszek'
-            }
-        ]
-    }
-
 @app.route('/search')
 def get_search_genius():
     try:
