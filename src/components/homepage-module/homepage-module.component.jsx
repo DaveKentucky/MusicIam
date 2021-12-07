@@ -1,9 +1,9 @@
 // libraries
 import React from 'react';
-import { Link } from 'react-router-dom';
 // styles
 import {
     ModuleContainer,
+    ModuleLink,
     ModuleImageContainer,
     ModuleImage,
     ModuleTitleContainer,
@@ -14,16 +14,16 @@ import {
 const HomepageModule = ({ title, path, imageUrl, imageDescription }) => {
     return (
         <ModuleContainer>
-            <Link to={path}>
-                <ModuleImageContainer>
-                    <ModuleImage src={ imageUrl } alt={ imageDescription } />
-                </ModuleImageContainer>
+            <ModuleLink to={ path }>
                 <ModuleTitleContainer>
                     <ModuleTitle>
                         { title }
                     </ModuleTitle>
                 </ModuleTitleContainer>
-            </Link>
+                <ModuleImageContainer>
+                    <ModuleImage src={ imageUrl } alt={ imageDescription } />
+                </ModuleImageContainer>
+            </ModuleLink>
         </ModuleContainer>
     );
 };

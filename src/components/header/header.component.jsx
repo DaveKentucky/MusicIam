@@ -4,7 +4,6 @@ import React from 'react';
 import {
     HeaderContainer,
     LogoContainer,
-    TextFieldContainer
 } from './header.styles';
 // components
 import { ReactComponent as Logo } from '../../assets/logo.svg';
@@ -18,14 +17,6 @@ const Header = () => {
                 <LogoContainer>
                     <Logo />
                 </LogoContainer>
-                <TextFieldContainer
-                    id='search-field'
-                    type='search'
-                    variant='filled'
-                    placeholder='Search'
-                    color='warning'
-                    size='small'
-                />
             </HeaderContainer>
         </Headroom>
     );
