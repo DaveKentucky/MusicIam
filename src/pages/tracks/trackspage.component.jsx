@@ -8,11 +8,13 @@ import {
     TopListHeader,
 } from './trackspage.styles';
 // components
+import Loader from '../../components/loader/loader.component';
 import TopListItem from '../../components/top-list-item/top-list-item.component';
 
 
 const Trackspage = () => {
-    const [topTracks, setTopTracks] = useState([])
+    const [topTracks, setTopTracks] = useState([]);
+    const [isFetching, setIsFetching] = useState(true);
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch('/hot');
@@ -28,6 +30,7 @@ const Trackspage = () => {
                 'apiPath': res.api_path,
                 'artistId': res.primary_artist.id
             }}));
+            setIsFetching(false);
         };
         fetchData();
     }, [])
@@ -36,10 +39,12 @@ const Trackspage = () => {
         <TrackspageContainer>
             <SearchboxContainer>
                 We're gonna have a search box here
-            </SearchboxContainer>            
+            </SearchboxContainer>
             <TopListContainer>
                 <TopListHeader>Top List</TopListHeader>
                 {
+                    isFetching ?
+                    <Loader /> :
                     topTracks.map((track) => (
                         <TopListItem
                             key={ track.songId }

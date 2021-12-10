@@ -11,14 +11,12 @@ export const TopListItemContainer = styled.div`
     margin: 5px 10px;
     font-size: 26px;
     color: black;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.6);
+    background-color: ${ variables.colors.musiciamYellowWashed };
 
     &:hover {
-        border-color: ${variables.colors.musiciamYellow};
+        border-color: ${ variables.colors.musiciamYellow };
         cursor: pointer;
-
-        div:last-child {
-            color: ${variables.colors.musiciamYellow};
-        }
     }
 `;
 TopListItemContainer.displayName = 'TopListItem';
@@ -40,7 +38,7 @@ TopListItemPosition.displayName = 'Index';
 export const TopListItemThumbnailImageContainer = styled.div`
     height: 90px;
     width: 90px;
-    background-image: url(${ ({imageUrl}) => `${ imageUrl }` });
+    background-image: url(${ ({ imageUrl }) => `${ imageUrl }` });
     background-size: cover;
     background-position: center;
     margin: 2px;

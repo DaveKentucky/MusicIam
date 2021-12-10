@@ -11,7 +11,7 @@ export const ModuleContainer = styled.div`
     max-width: 60%;
     &:hover {
         cursor: pointer;
-        border-color: ${variables.colors.musiciamYellow};
+        border-color: ${ variables.colors.musiciamYellow };
     }
 `;
 ModuleContainer.displayName = 'ModuleContainer';
@@ -59,7 +59,7 @@ ModuleTitleContainer.displayName = 'ModuleTitleContainer';
 export const ModuleTitle = styled.h2`
     font-size: 120px;
     font-weight: 300;
-    color: ${variables.colors.musiciamYellow};
+    color: ${ variables.colors.musiciamYellow };
     opacity: 0;
     transition: opacity 0.5s linear;
 `;
