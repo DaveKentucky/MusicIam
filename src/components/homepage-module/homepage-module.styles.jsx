@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { variables } from '../../scss_variables';
 
 
 export const ModuleContainer = styled.div`
@@ -10,7 +11,7 @@ export const ModuleContainer = styled.div`
     max-width: 60%;
     &:hover {
         cursor: pointer;
-        border-color: #ffd730ff;
+        border-color: ${variables.colors.musiciamYellow};
     }
 `;
 ModuleContainer.displayName = 'ModuleContainer';
@@ -42,7 +43,6 @@ ModuleImageContainer.displayName = 'ModuleImageContainer';
 export const ModuleImage = styled.img`
     height: 100%;
     width: auto;
-    background-color: #ffd730ff;
 `;
 ModuleImage.displayName = 'ModuleImage';
 
@@ -58,7 +58,7 @@ ModuleTitleContainer.displayName = 'ModuleTitleContainer';
 
 export const ModuleTitle = styled.h2`
     font-size: 120px;
-    color: #ffd730ff;
+    color: ${variables.colors.musiciamYellow};
     opacity: 0;
     transition: opacity 0.5s linear;
 `;

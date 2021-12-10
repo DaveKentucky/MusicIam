@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import TextField from '@mui/material/TextField';
-
 
 export const HeaderContainer = styled.div`
     height: 60px;
@@ -21,10 +19,3 @@ export const LogoContainer = styled.div`
     cursor: pointer;
 `;
 LogoContainer.displayName = 'LogoContainer';
-
-export const TextFieldContainer = styled(TextField)`
-    background-color: #ffd730ff;
-    overflow: hidden;
-    width: 300px;
-`;
-TextFieldContainer.displayName = 'TextFieldContainer';
