@@ -3,7 +3,7 @@ import React from 'react';
 // styles
 import {
     LoaderContainer,
-    LoaderBarWave
+    LoaderText
 } from './loader.styles';
 import { variables } from '../../scss-variables';
 // components
@@ -14,10 +14,13 @@ const Loader = () => {
     return (
         <LoaderContainer>
             <BarWave 
-                height='30px'
-                width='60px'
+                height='40px'
+                width='80px'
                 color={ variables.colors.musiciamYellow }
             />
+            <LoaderText>
+                loading...
+            </LoaderText>
         </LoaderContainer>
     );
 };
