@@ -9,6 +9,7 @@ export const TrackspageContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 25px 0;
+    min-height: 100vh;
 `;
 TrackspageContainer.displayName = 'TrackspageContainer';
 
@@ -25,8 +26,9 @@ export const TopListContainer = styled.div`
 TopListContainer.displayName = 'TopList';
 
 export const TopListHeader = styled.h1`
-    font-family: ${variables.fonts.headerFont};
+    font-family: ${ variables.fonts.headerFont };
     font-size: 100px;
     margin: 30px 0;
+    text-shadow: 2px 4px ${ variables.colors.musiciamYellowWashed };
 `;
 TopListHeader.displayName = 'TopListHeader';

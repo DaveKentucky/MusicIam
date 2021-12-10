@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import { variables } from '../../scss-variables';
 
 export const HeaderContainer = styled.div`
-    height: 60px;
+    height: 70px;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -14,9 +14,20 @@ export const HeaderContainer = styled.div`
 `;
 HeaderContainer.displayName = 'HeaderContainer';
 
-export const LogoContainer = styled(Link)`
+export const LogoLink = styled(Link)`
     display: flex;
     align-items: center;
     cursor: pointer;
+    font-family: ${ variables.fonts.headerFont };
+    text-decoration: none;
+    color: ${ variables.colors.musiciamPurple };
+
+    &:focus, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: underline 1px ${ variables.colors.musiciamYellow };
+    }
 `;
-LogoContainer.displayName = 'LogoContainer';
+LogoLink.displayName = 'LogoLink';
