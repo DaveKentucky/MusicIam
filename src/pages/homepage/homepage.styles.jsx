@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { variables } from '../../scss-variables';
 
 
 export const HomepageContainer = styled.div`
@@ -31,7 +32,7 @@ export const MainTextContainer = styled.div`
     align-items: center;
     justify-content: center;
     z-index: 2;
-    font-family: 'Lobster';
+    font-family: ${variables.fonts.headerFont};
     font-size: 70px;
     text-align: center;
 
@@ -42,7 +43,7 @@ export const MainTextContainer = styled.div`
 MainTextContainer.displayName = 'MainText';
 
 export const HomepageContentContainer = styled.div`
-    background-color: #713987;
+    background-color: ${variables.colors.musiciamPurple};
     z-index: 3;
     box-shadow: 0px -3px 14px 7px rgba(0,0,0,0.8);
     display: flex;

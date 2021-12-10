@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import TextField from '@mui/material/TextField';
+import { Link } from 'react-router-dom';
 
 
 export const HeaderContainer = styled.div`
@@ -15,16 +14,9 @@ export const HeaderContainer = styled.div`
 `;
 HeaderContainer.displayName = 'HeaderContainer';
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(Link)`
     display: flex;
     align-items: center;
     cursor: pointer;
 `;
 LogoContainer.displayName = 'LogoContainer';
-
-export const TextFieldContainer = styled(TextField)`
-    background-color: #ffd730ff;
-    overflow: hidden;
-    width: 300px;
-`;
-TextFieldContainer.displayName = 'TextFieldContainer';

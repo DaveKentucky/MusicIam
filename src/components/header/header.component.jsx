@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <Headroom>
             <HeaderContainer>
-                <LogoContainer>
+                <LogoContainer to='/'>
                     <Logo />
                 </LogoContainer>
             </HeaderContainer>
