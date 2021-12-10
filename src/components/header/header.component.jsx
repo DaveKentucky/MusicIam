@@ -3,10 +3,9 @@ import React from 'react';
 // styles
 import {
     HeaderContainer,
-    LogoContainer,
+    LogoLink,
 } from './header.styles';
 // components
-import { ReactComponent as Logo } from '../../assets/logo.svg';
 import Headroom from 'react-headroom';
 
 
@@ -14,9 +13,9 @@ const Header = () => {
     return (
         <Headroom>
             <HeaderContainer>
-                <LogoContainer to='/'>
-                    <Logo />
-                </LogoContainer>
+                <LogoLink to='/'>
+                    <h1>musicIam</h1>
+                </LogoLink>
             </HeaderContainer>
         </Headroom>
     );
