@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { variables } from '../../scss_variables';
+import { variables } from '../../scss-variables';
 
 
 export const ModuleContainer = styled.div`
@@ -58,6 +58,7 @@ ModuleTitleContainer.displayName = 'ModuleTitleContainer';
 
 export const ModuleTitle = styled.h2`
     font-size: 120px;
+    font-weight: 300;
     color: ${variables.colors.musiciamYellow};
     opacity: 0;
     transition: opacity 0.5s linear;

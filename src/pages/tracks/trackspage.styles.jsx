@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { variables } from '../../scss_variables';
+import { variables } from '../../scss-variables';
 
 
 export const TrackspageContainer = styled.div`
@@ -8,6 +8,7 @@ export const TrackspageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 25px 0;
 `;
 TrackspageContainer.displayName = 'TrackspageContainer';
 
@@ -17,14 +18,15 @@ export const SearchboxContainer = styled.div`
 SearchboxContainer.displayName = 'Searchbox';
 
 export const TopListContainer = styled.div`
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
 `;
 TopListContainer.displayName = 'TopList';
 
 export const TopListHeader = styled.h1`
-    font-size: 80px;
-    font-weight: 700;
+    font-family: ${variables.fonts.headerFont};
+    font-size: 100px;
+    margin: 30px 0;
 `;
 TopListHeader.displayName = 'TopListHeader';

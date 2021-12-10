@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { variables } from '../../scss_variables';
+import { variables } from '../../scss-variables';
 
 
 export const HomepageContainer = styled.div`
