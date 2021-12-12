@@ -1,3 +1,17 @@
+import { createTheme } from '@mui/material/styles';
+
+
+const musiciamTheme = createTheme({
+    palette: {
+      primary: {
+          main: '#713987',
+      },
+      secondary: {
+          main: '#ffd730',
+      },
+    },
+});
+
 export const variables = {
     colors: {
         musiciamYellow: `#ffd730ff`,
@@ -8,5 +22,6 @@ export const variables = {
     fonts: {
         headerFont: `Lobster`,
         mainFont: `Poppins`
-    }
-}
+    },
+    colorTheme: musiciamTheme 
+};

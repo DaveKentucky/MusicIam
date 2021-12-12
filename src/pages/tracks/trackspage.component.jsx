@@ -7,13 +7,13 @@ import {
 } from './trackspage.styles';
 // components
 import TopList from '../../components/top-list/top-list.component';
+import Searchbox from '../../components/searchbox/searchbox.component';
+
 
 const Trackspage = () => {
     return (
         <TrackspageContainer>
-            <SearchboxContainer>
-                We're gonna have a search box here
-            </SearchboxContainer>
+            <Searchbox />
             <TopList />
         </TrackspageContainer>
     );
