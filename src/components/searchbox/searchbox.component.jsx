@@ -1,19 +1,26 @@
 // libraries
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // styles
 import {
     SearchboxContainer,
     SearchboxHeader,
     SearchboxTextField
 } from './searchbox.styles';
-import { variables } from '../../scss-variables';
 
 
-const Searchbox = () => {
+const Searchbox = ({ handleChange, title, placeholders }) => {
+    const [placeholder, setPlaceholder] = useState("");
+    useEffect(() => {
+        setPlaceholder(placeholders[Math.floor(Math.random()*placeholders.length)]);
+    }, []);
+
     return (
             <SearchboxContainer>
-                <SearchboxHeader>placeholder header</SearchboxHeader>
-                <SearchboxTextField />
+                <SearchboxHeader>{ title }</SearchboxHeader>
+                <SearchboxTextField
+                    onChange={ handleChange }
+                    placeholder={ placeholder }
+                />
             </SearchboxContainer>
     );
 };

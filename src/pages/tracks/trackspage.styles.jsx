@@ -8,7 +8,16 @@ export const TrackspageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 25px;
     min-height: 100vh;
 `;
 TrackspageContainer.displayName = 'TrackspageContainer';
+
+export const TopListContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 25px;
+    box-shadow: ${ variables.shadows.sectionShadow };
+`;
