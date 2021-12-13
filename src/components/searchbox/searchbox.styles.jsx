@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { TextField } from '@mui/material';
-
+import { variables } from '../../scss-variables';
 
 export const SearchboxContainer = styled.div`
     background-image: url('https://images.unsplash.com/photo-1557063673-0493e05da49f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80');
@@ -18,9 +17,19 @@ export const SearchboxHeader = styled.h1`
 `;
 SearchboxHeader.displayName = 'Header';
 
-export const SearchboxTextField = styled(TextField)`
-    input {
-        height: 100px;
+export const SearchboxTextField = styled.input`
+    height: 80px;
+    width: 40%;
+    opacity: 0.75;
+    border: solid 2px;
+    font-size: 30px;
+    padding: 0 20px;
+    font-family: ${ variables.fonts.mainFont };
+    box-shadow: ${ variables.shadows.boxShadow };
+
+    &:focus {
+        outline: none;
+        border-color: ${ variables.colors.musiciamYellow };
     }
 `;
 SearchboxTextField.displayName = 'TextField';

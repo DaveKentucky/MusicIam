@@ -23,5 +23,9 @@ export const variables = {
         headerFont: `Lobster`,
         mainFont: `Poppins`
     },
+    shadows: {
+        boxShadow: `0px 0px 10px 2px rgba(0, 0, 0, 0.6)`,
+        sectionShadow: `0px -3px 14px 7px rgba(0, 0, 0, 0.8)`
+    },
     colorTheme: musiciamTheme 
 };

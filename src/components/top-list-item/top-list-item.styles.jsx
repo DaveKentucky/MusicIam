@@ -11,7 +11,7 @@ export const TopListItemContainer = styled.div`
     margin: 5px 10px;
     font-size: 20px;
     color: black;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: ${ variables.shadows.boxShadow };
     background-color: ${ variables.colors.musiciamYellowWashed };
 
     &:hover {

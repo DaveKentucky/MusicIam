@@ -45,7 +45,7 @@ MainTextContainer.displayName = 'MainText';
 export const HomepageContentContainer = styled.div`
     background-color: ${ variables.colors.musiciamPurple };
     z-index: 3;
-    box-shadow: 0px -3px 14px 7px rgba(0,0,0,0.8);
+    box-shadow: ${ variables.shadows.sectionShadow };
     display: flex;
     flex-direction: column;
     align-items: center;
