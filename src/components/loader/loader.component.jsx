@@ -7,7 +7,7 @@ import {
 } from './loader.styles';
 import { variables } from '../../scss-variables';
 // components
-import { BarWave } from "react-cssfx-loading";
+import { BarWave } from 'react-cssfx-loading';
 
 
 const Loader = () => {

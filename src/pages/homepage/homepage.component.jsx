@@ -15,7 +15,6 @@ import HOMEPAGE_DATA from './homepage.data';
 
 const Homepage = () => {
     const [modules] = useState(HOMEPAGE_DATA.modules)
-    console.log(modules);
 
     return (
         <HomepageContainer>

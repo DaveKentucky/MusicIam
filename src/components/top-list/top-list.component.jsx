@@ -13,6 +13,7 @@ import TopListItem from '../../components/top-list-item/top-list-item.component'
 const TopList = () => {
     const [topTracks, setTopTracks] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
+
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch('/hot');
@@ -27,7 +28,8 @@ const TopList = () => {
                 'artist': res.artist_names,
                 'apiPath': res.api_path,
                 'artistId': res.primary_artist.id
-            }}));
+                };
+            }));
             setIsFetching(false);
         };
         fetchData();
@@ -35,7 +37,7 @@ const TopList = () => {
 
     return (
         <TopListContainer>
-                <TopListHeader>Top List</TopListHeader>
+                <TopListHeader>Top Tracks</TopListHeader>
                 {
                     isFetching ?
                     <Loader /> :

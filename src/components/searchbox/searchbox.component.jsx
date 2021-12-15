@@ -10,9 +10,10 @@ import {
 
 const Searchbox = ({ handleChange, title, placeholders }) => {
     const [placeholder, setPlaceholder] = useState("");
+
     useEffect(() => {
-        setPlaceholder(placeholders[Math.floor(Math.random()*placeholders.length)]);
-    }, []);
+        setPlaceholder(placeholders[Math.floor(Math.random() * placeholders.length)]);
+    }, [placeholders]);
 
     return (
             <SearchboxContainer>

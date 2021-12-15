@@ -12,9 +12,7 @@ import {
 const Errorpage = () => {
     return (
         <ErrorpageContainer>
-            <ErrorImageContainer>
-
-            </ErrorImageContainer>
+            <ErrorImageContainer />
             <ErrorCode>
                     404
                 </ErrorCode>

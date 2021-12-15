@@ -14,13 +14,19 @@ import {
 
 const TopListItem = ({ position, title, artist, imageUrl }) => {
     const [displayTitle, setDisplayTitle] = useState(title);
-    const [displayArtist, setDisplayArtis] = useState(artist);
+    const [displayArtist, setDisplayArtist] = useState(artist);
+
     useEffect(() => {
-        if(displayTitle.length >= 35) setDisplayTitle(displayTitle.substring(0, 30) + '...');
+        setDisplayTitle(trimDisplayString(title, 32));
     }, [title]);
+
     useEffect(() => {
-        if(displayArtist.length >= 20) setDisplayArtis(displayArtist.substring(0, 15) + '...');
-    })
+        setDisplayArtist(trimDisplayString(artist, 20));
+    }, [artist]);
+    
+    const trimDisplayString = (original, maxLength) => {
+        return original.length > maxLength ? original.substring(0, maxLength - 5) + "..." : original;
+    };
 
     return (
         <TopListItemContainer>
