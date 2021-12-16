@@ -8,6 +8,7 @@ from utils import get_random_id, search_genius
 import re
 import json
 
+
 app = Flask('server')
 
 genius_rapidapi_url = 'https://genius.p.rapidapi.com'
@@ -75,10 +76,13 @@ def get_song_lyrics(song_id):
         # remove script tags that they put in the middle of the lyrics
         [h.extract() for h in html('script')]
         # get content of the 'lyrics' div
-        lyrics_soup = html.find('div', class_='lyrics')
-        # BeautifulSoup find() returns None if no results were found
-        if lyrics_soup is not None:
-            lyrics = lyrics_soup.get_text()
+        lyrics_soup = html.find_all('div', class_=re.compile('Lyrics__Container-sc'))
+
+        # BeautifulSoup find_all() returns an empty list if no results were found
+        if len(lyrics_soup) > 0:
+            lyrics = ""
+            for soup in lyrics_soup:
+                lyrics += soup.get_text("\n", strip=True)
             break
 
     return lyrics
