@@ -1,6 +1,7 @@
 ﻿import styled from 'styled-components';
 import { variables } from '../../scss-variables';
 
+
 export const ArtistspageContainer = styled.div`
     background: ${variables.colors.musiciamPurple};
     display: flex;

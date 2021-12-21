@@ -18,11 +18,8 @@ function App() {
           <Route path='/' element={ <Layout /> }>
             <Route path='/' element={ <Homepage /> }/>
             <Route path='tracks' element={ <Trackspage /> }/>
-<<<<<<< HEAD
-            <Route path='tracks/:trackId' element={ <Track /> }/>
-=======
             <Route path='artists' element={ <Artistspage /> }/>
->>>>>>> 25b8cb4474284bf4ce1792bd119acc5601a469e9
+            <Route path='tracks/:trackId' element={ <Track /> }/>
           </Route>
           <Route path='*' element={ <Errorpage /> }/>
         </Routes>

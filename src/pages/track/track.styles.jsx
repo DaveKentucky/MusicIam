@@ -6,7 +6,7 @@ export const TrackHeader = styled.div`
     height: 60vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     padding: 4%;
 `;
 TrackHeader.displayName = 'TrackHeader';
@@ -20,7 +20,6 @@ export const TrackImage = styled.div`
 TrackImage.displayName = 'TrackIamge';
 
 export const TrackTitleAndAuthor = styled.div`
-    width: 60vw;
     height: 100%;
     display: flex;
     flex-direction: column;
