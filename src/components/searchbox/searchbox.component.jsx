@@ -8,7 +8,7 @@ import {
 } from './searchbox.styles';
 
 
-const Searchbox = ({ handleChange, title, placeholders }) => {
+const Searchbox = ({ handleChange, title, placeholders, imageUrl }) => {
     const [placeholder, setPlaceholder] = useState("");
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const Searchbox = ({ handleChange, title, placeholders }) => {
     }, [placeholders]);
 
     return (
-            <SearchboxContainer>
+            <SearchboxContainer imageUrl={imageUrl}>
                 <SearchboxHeader>{ title }</SearchboxHeader>
                 <SearchboxTextField
                     onChange={ handleChange }
