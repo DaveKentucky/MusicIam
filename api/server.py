@@ -16,7 +16,7 @@ options.add_argument('--ignore-certificate-errors')
 options.add_argument('--incognito')
 options.add_argument('--headless')
 options.page_load_strategy = 'eager'
-driver = webdriver.Chrome(executable_path=r"C:\\Program Files\\selenium\\chromedriver.exe", options=options)
+driver = webdriver.Chrome(executable_path=r".\\chromedriver.exe", options=options)
 
 app = Flask('server')
 
@@ -98,7 +98,7 @@ def get_song_lyrics(song_id):
 
 @app.route('/hot')
 def get_hot_tracks():
-    page_url = 'https://genius.com'
+    page_url = 'https://genius.com/#top-songs'
     search_queries = []
     while True:
         driver.get(page_url)
@@ -109,7 +109,6 @@ def get_hot_tracks():
         [h.extract() for h in html('script')]
         # get content of all the charts title divs
         titles_soup = html.findAll('div', class_=re.compile('ChartSongdesktop__Title-sc'))
-        print(html)
         if len(titles_soup) > 0:
             for title_soup in titles_soup:
                 # extract the title string
