@@ -8,6 +8,15 @@ from utils import get_random_id, search_genius
 import re
 import json
 
+# Import code:
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+options = Options()
+options.add_argument('--ignore-certificate-errors')
+options.add_argument('--incognito')
+options.add_argument('--headless')
+options.page_load_strategy = 'eager'
+driver = webdriver.Chrome(executable_path=r"C:\\Program Files\\selenium\\chromedriver.exe", options=options)
 
 app = Flask('server')
 
@@ -89,15 +98,18 @@ def get_song_lyrics(song_id):
 
 @app.route('/hot')
 def get_hot_tracks():
-    page_url = 'https://genius.com/#top-songs'
+    page_url = 'https://genius.com'
     search_queries = []
     while True:
-        page = requests.get(page_url)
-        html = BeautifulSoup(page.text, 'lxml')
+        driver.get(page_url)
+        page = driver.page_source
+        # page = requests.get(page_url)
+        html = BeautifulSoup(page, 'lxml')
         # remove script tags that they put in the middle of the lyrics
         [h.extract() for h in html('script')]
         # get content of all the charts title divs
         titles_soup = html.findAll('div', class_=re.compile('ChartSongdesktop__Title-sc'))
+        print(html)
         if len(titles_soup) > 0:
             for title_soup in titles_soup:
                 # extract the title string
