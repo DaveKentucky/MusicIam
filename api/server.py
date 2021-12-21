@@ -94,7 +94,7 @@ def get_song_lyrics(song_id):
                 lyrics += soup.get_text("\n", strip=True)
             break
 
-    return lyrics
+    return json.dumps({'lyrics': lyrics})
 
 @app.route('/hot')
 def get_hot_tracks():
