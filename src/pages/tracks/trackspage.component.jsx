@@ -27,6 +27,7 @@ const Trackspage = () => {
     return (
         <TrackspageContainer>
             <Searchbox
+                imageUrl="https://images.unsplash.com/photo-1557063673-0493e05da49f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80"
                 handleChange={ handleChange }
                 title="Search tracks"
                 placeholders={ searchBoxPlaceholders }
