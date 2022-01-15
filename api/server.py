@@ -33,7 +33,7 @@ def get_search_genius():
     except Exception:
         print('An error occured')
 
-    response = search_genius(search_query, 2)
+    response = search_genius(search_query, 10)
     return json.dumps(response)
 
 @app.route('/songs/<song_id>')

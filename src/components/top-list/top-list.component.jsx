@@ -21,13 +21,13 @@ const TopList = () => {
             setTopTracks(data.map((result, index) => {
                 const res = result.result;
                 return {
-                'songId': res.id,
-                'position': index + 1,
-                'title': res.title,
-                'imageUrl': res.header_image_thumbnail_url,
-                'artist': res.artist_names,
-                'apiPath': res.api_path,
-                'artistId': res.primary_artist.id
+                    'songId': res.id,
+                    'position': index + 1,
+                    'title': res.title,
+                    'imageUrl': res.header_image_thumbnail_url,
+                    'artist': res.artist_names,
+                    'apiPath': res.api_path,
+                    'artistId': res.primary_artist.id
                 };
             }));
             setIsFetching(false);

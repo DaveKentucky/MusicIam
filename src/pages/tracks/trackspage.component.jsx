@@ -12,9 +12,35 @@ import Searchbox from '../../components/searchbox/searchbox.component';
 
 const Trackspage = () => {
     const [searchInput, setSearchInput] = useState("");
+    const [searchHits, setSearchHits] = useState([]);
+
     const handleChange = (event) => {
         setSearchInput(event.target.value);
     };
+
+    const handleSubmit = async () => {
+        if (searchInput.length !== 0) {
+            const paramsObject = { search: searchInput };
+            const params = new URLSearchParams(paramsObject);
+            const response = await fetch('/search?' + params.toString());
+            const data = await response.json();
+            console.log(data.length)
+            const filteredData = data.filter(hit => hit.type === "song")
+            setSearchHits(filteredData.map((hit, index) => {
+                const res = hit.result;
+                return {
+                    'songId': res.id,
+                    'position': index + 1,
+                    'title': res.title,
+                    'imageUrl': res.header_image_thumbnail_url,
+                    'artist': res.artist_names,
+                    'apiPath': res.api_path,
+                    'artistId': res.primary_artist.id
+                };
+            }));
+        };
+    };
+
     const searchBoxPlaceholders = [
         "Bon Jovi - It's my life",
         "RHCP - Californication",
@@ -31,6 +57,9 @@ const Trackspage = () => {
                 handleChange={ handleChange }
                 title="Search tracks"
                 placeholders={ searchBoxPlaceholders }
+                onKeyPress={e => {
+                    if (e.key === 'Enter') handleSubmit();
+                }}
             />
             <TopListContainer>
                 <TopList />
