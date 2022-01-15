@@ -3,17 +3,21 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // styles
 import {
-    TrackHeader,
-    TrackImage,
-    TrackTitleAndAuthor,
-    TrackTitle,
-    TrackAuthor
+    Container,
+    Header,
+    Image,
+    TitleAndAuthorContainer,
+    Title,
+    Author,
+    Lyrics,
+    LyricsLine,
+    LyricsSpecial,
 } from './track.styles';
 
 
 const Track = () => {
     const [trackData, setTrackData] = useState({});
-    const [trackLyrics, setTrackLyrics] = useState("");
+    const [trackLyrics, setTrackLyrics] = useState([]);
     const routeParams = useParams()
 
     useEffect(() => {
@@ -48,16 +52,25 @@ const Track = () => {
     console.log(trackLyrics);
 
     return (
-        <div className='track-container'>
-            <TrackHeader>
-                <TrackImage imageUrl={ trackData.imageUrl } />
-                <TrackTitleAndAuthor>
-                <TrackTitle>{ trackData.title }</TrackTitle>
-                <TrackAuthor>{ trackData.artist }</TrackAuthor>
-                </TrackTitleAndAuthor>
-            </TrackHeader>
-            { trackLyrics }
-        </div>
+        <Container>
+            <Header>
+                <Image imageUrl={ trackData.imageUrl } />
+                <TitleAndAuthorContainer>
+                <Title>{ trackData.title }</Title>
+                <Author>{ trackData.artist }</Author>
+                </TitleAndAuthorContainer>
+            </Header>
+            <Lyrics>
+                {
+                    trackLyrics.map((line, index) => (
+                        (line.charAt(0) === '[' && line.charAt(line.length - 1) === ']')
+                        ? <LyricsSpecial key={index}>{ line }</LyricsSpecial>
+                        : <LyricsLine key={index}>{ line }</LyricsLine>
+                    ))
+                }
+            </Lyrics>
+
+        </Container>
     );
 };
 

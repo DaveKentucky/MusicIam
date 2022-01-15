@@ -7,7 +7,7 @@ import {
 } from './top-list.styles';
 // components
 import Loader from '../../components/loader/loader.component';
-import TopListItem from '../../components/top-list-item/top-list-item.component';
+import ResultsList from '../results-list/results-list.component';
 
 
 const TopList = () => {
@@ -37,17 +37,12 @@ const TopList = () => {
 
     return (
         <TopListContainer>
-                <TopListHeader>Top Tracks</TopListHeader>
-                {
-                    isFetching ?
-                    <Loader /> :
-                    topTracks.map((track) => (
-                        <TopListItem
-                            key={ track.songId }
-                            { ...track }
-                        />
-                    ))
-                }
+            <TopListHeader>Top Tracks</TopListHeader>
+            {
+                isFetching ?
+                <Loader /> :
+                <ResultsList results={topTracks}/>
+            }
         </TopListContainer>
     );
 };

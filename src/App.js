@@ -17,9 +17,9 @@ function App() {
         <Routes>
           <Route path='/' element={ <Layout /> }>
             <Route path='/' element={ <Homepage /> }/>
-            <Route path='tracks' element={ <Trackspage /> }/>
+            <Route path='songs' element={ <Trackspage /> }/>
             <Route path='artists' element={ <Artistspage /> }/>
-            <Route path='tracks/:trackId' element={ <Track /> }/>
+            <Route path='songs/:trackId' element={ <Track /> }/>
           </Route>
           <Route path='*' element={ <Errorpage /> }/>
         </Routes>

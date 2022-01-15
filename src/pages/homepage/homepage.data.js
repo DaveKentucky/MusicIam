@@ -12,7 +12,7 @@ const HOMEPAGE_DATA = {
         {
             id: 2,
             title: 'Tracks',
-            path: '/tracks',
+            path: '/songs',
             imageUrl: 'https://images.unsplash.com/photo-1582730147924-d92f4da00252?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80',
             imageDescription: 'vinyls'
         },

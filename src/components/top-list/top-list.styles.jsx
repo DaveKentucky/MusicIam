@@ -3,9 +3,10 @@ import { variables } from '../../scss-variables';
 
 
 export const TopListContainer = styled.div`
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 `;
 TopListContainer.displayName = 'TopList';
 
