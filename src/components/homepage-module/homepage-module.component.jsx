@@ -16,9 +16,7 @@ const HomepageModule = ({ title, path, imageUrl, imageDescription }) => {
         <ModuleContainer>
             <ModuleLink to={ path }>
                 <ModuleTitleContainer>
-                    <ModuleTitle>
-                        { title }
-                    </ModuleTitle>
+                    <ModuleTitle>{ title }</ModuleTitle>
                 </ModuleTitleContainer>
                 <ModuleImageContainer>
                     <ModuleImage src={ imageUrl } alt={ imageDescription } />

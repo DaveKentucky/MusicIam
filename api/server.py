@@ -91,10 +91,12 @@ def get_song_lyrics(song_id):
         if len(lyrics_soup) > 0:
             lyrics = ""
             for soup in lyrics_soup:
-                lyrics += soup.get_text("\n", strip=True)
+                lyrics += soup.get_text("|", strip=True)
+                lyrics += "|"
+            lyrics_list = lyrics.split("|")
             break
 
-    return json.dumps({'lyrics': lyrics})
+    return json.dumps({'lyrics': lyrics_list})
 
 @app.route('/hot')
 def get_hot_tracks():

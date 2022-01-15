@@ -8,6 +8,7 @@ import {
 // components
 import TopList from '../../components/top-list/top-list.component';
 import Searchbox from '../../components/searchbox/searchbox.component';
+import ResultsList from '../../components/results-list/results-list.component';
 
 
 const Trackspage = () => {
@@ -61,6 +62,7 @@ const Trackspage = () => {
                     if (e.key === 'Enter') handleSubmit();
                 }}
             />
+            { searchHits.length > 0 && <ResultsList results={searchHits}/> }
             <TopListContainer>
                 <TopList />
             </TopListContainer>
