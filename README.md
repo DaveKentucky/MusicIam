@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Musiclam
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jest to aplikacja webowa pozwalająca na wyświetlenie najpopularniejszych utworów muzycznych w internecie. Dla ciekawskich daję takżę możliwość o dowiedzeniu się więcej rzeczy o utrzorze, jak np. dokładny tekst piosenki.
 
-## Available Scripts
+Projekt powstał przy pomocy aplikacji [React](https://reactrouter.com/) ([create-react](https://github.com/facebook/create-react-app)) i wykorzystuje szereg Open Source'owych bibliotek.
 
-In the project directory, you can run:
+## Uruchomienie aplikacji
 
-### `npm start`
+W celu poprawnego uruchomienia aplikacji po załadowaniu kodu źródłowego w przygotowanym środowisku programistycznym (np PyCharm) powinno się uruchomić dwie konsole. W pierwszej uruchomić serwer strony, a w drugiej uruchomić stronę jako klient.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### Server
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`npm run start-server`
 
-### `npm test`
+domyślnie ustawiony jest na http://127.0.0.1:5000
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### Klient
 
-### `npm run build`
+`npm run start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aby prawidłowo przygotować środowisko programistyczne wymagana jest obsługa języka [Python](https://www.python.org/downloads/), oraz zainstalowany manager pakietów [npm](https://www.npmjs.com/) dla środowiska Node.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Historia Użytkownika
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Użytkownik na stronie głównej może wybrać czy chcę przeglądać utwory, czy artystów.
+W przypadku utworów, użytkownik może w wyszukiwarce znaleźć swój ulubiony utwór, albo pod nią zobaczyć listę najpopularniejszych utworów. Gdy użytkownik znalazł swój kawałek myzyczny, może w niego kliknąć, aby dowiedzieć się o nim więcej informacji.
+W przypadku wyboru artystów, użytkownik otrzymuje dostęp tylko do wyszukiwarki artystów.
 
-### `npm run eject`
+## Wykorzystane biblioteki
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### [Styled Components](https://styled-components.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Jest to biblioteka wykorzystująca znakowanie literałów szablonów (dodatek do JavaScript) i potęgę CSS. Styled-Components umożliwia pisanie kodu CSS w celu nadania stylu komponentom. Usuwa również mapowanie między komponentami i stylami. Dzięki temu używanie komponentów jako konstrukcji do stylizacji niskiego poziomu nie może być prostsze!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### [Genius](https://docs.genius.com/#/resources-h1)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Genius jest to strona internetowa zawierająca biblotekę najpopularniejszych utworów muzycznych w internecie. Genius zapewnia dostęp do swojego API, aby nasza strona w prosty sposób podłączyła się z kontem Genius'a. W ten sposób pozwalając nam na proste wykorzystanie ich end-pointów.
 
-## Learn More
+#### [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Beautiful Soup jest to bibloteka Pythona do wyciągania danych z plików HTML i XML.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### [Postman](https://www.postman.com/)
 
-### Code Splitting
+Jest to platforma API do budowania i używania API. Dzięki niej stworzyliśmy następujące API, które wykorzystaliśmy w aplikacji:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* GET search Genius
+* GET song from Genius
+* GET artist from Genius
+* GET songs by artist from Genius
+* GET track from Spotify
+* GET song lyrics from Genius
+* GET hot tracks from Genius
 
-### Analyzing the Bundle Size
+## API w aplikacji
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+W celu stworzenia strony przygotowaliśmy następujące end-pointy:
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* search
+* songs/<song_id>
+* artists/<artist_id>
+* artists/<artist_id>/songs
+* songs/<song_id>/lyrics
+* hot
+* track
