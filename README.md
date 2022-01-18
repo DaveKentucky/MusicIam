@@ -1,65 +1,66 @@
-# Musiclam
+Musiclam
+=====
 
 Jest to aplikacja webowa pozwalająca na wyświetlenie najpopularniejszych utworów muzycznych w internecie. Dla ciekawskich daję takżę możliwość o dowiedzeniu się więcej rzeczy o utrzorze, jak np. dokładny tekst piosenki.
 
-Projekt powstał przy pomocy aplikacji [React](https://reactrouter.com/) ([create-react](https://github.com/facebook/create-react-app)) i wykorzystuje szereg Open Source'owych bibliotek.
+Aplikację tworzą dwa projekty. Projekt backendowy składa się z prostego serwera oprogramowanego w języku Python we frameworku [Flask](https://flask.palletsprojects.com/en/2.0.x/). Projekt frontendowy został zbudowany z użyciem frameworka [React](https://pl.reactjs.org/) ([create-react-app](https://create-react-app.dev/)) i wykorzystuje szereg Open Source'owych bibliotek.
 
-## Uruchomienie aplikacji
+## Uruchamianie aplikacji
 
-W celu poprawnego uruchomienia aplikacji po załadowaniu kodu źródłowego w przygotowanym środowisku programistycznym (np PyCharm) powinno się uruchomić dwie konsole. W pierwszej uruchomić serwer strony, a w drugiej uruchomić stronę jako klient.
+W niniejszym rozdziale opisano kolejne kroki postępowania konieczne do uruchomienia aplikacji na własnym urządzeniu.
 
-##### Server
+### Konfiguracja serwera
 
-`npm run start-server`
+Przed uruchomieniem projektu konieczne jest zdefiniowanie konfiguracji serwera. W tym calu należy stworzyć plik `.flaskenv` w folderze `api`. Plik konfiguracyjny powinien mieć następującą formę:
+```
+FLASK_APP=server.py
+FLASK_ENV=development
 
-domyślnie ustawiony jest na http://127.0.0.1:5000
+GENIUS_API_HOST=genius.p.rapidapi.com
+GENIUS_API_KEY=<your API key>
+```
+Podczas testowania aplikacji wykorzystano hosta [RapidAPI](https://rapidapi.com/hub). Jest to serwis, zbierający wiele publicznych API internetowych, w którym można założyć darmowe konto i uzyskać dostęp zarówno do płatnych jak i darmowych API. Zachęcamy użytkownika do rejestracji w serwisie i wygenerowania własnego klucza API, który należy następnie wkleić do pliku konfiguracyjnego we wskazanym miejscu zastępując frazę `<your API key>`.
 
-##### Klient
+### Uruchamianie klienta w trybie developerskim
 
-`npm run start`
+Do uruchomienia skonfigurowanego projektu wystarczy użyć dwóch okien konsoli systemowej. Konsole należy otworzyć w głównym katalogu projektu. do uruchamiania należy użyć menadżera paczek [npm](https://www.npmjs.com/). W jednej konsoli należy uruchomić serwer za pomocą komendy:
+```
+npm run start-server
+```
+W drugim oknie konsoli należy następnie uruchomić frontend za pomocą komendy:
+```
+npm run start
+```
+Po chwili aplikacja powinna otworzyć się samoczynnie w nowym oknie przeglądarki internetowej. Jeśli tak się nie stanie, można bezpośrednio wpisać w pasku przeglądarki adres `localhost` na porcie `3000`:
+```
+http://localhost:3000/
+```
 
-Aby prawidłowo przygotować środowisko programistyczne wymagana jest obsługa języka [Python](https://www.python.org/downloads/), oraz zainstalowany manager pakietów [npm](https://www.npmjs.com/) dla środowiska Node.js
+## Wykorzystane narzędzia i biblioteki
 
-#### Historia Użytkownika
+### [Styled Components](https://styled-components.com/)
 
-Użytkownik na stronie głównej może wybrać czy chcę przeglądać utwory, czy artystów.
-W przypadku utworów, użytkownik może w wyszukiwarce znaleźć swój ulubiony utwór, albo pod nią zobaczyć listę najpopularniejszych utworów. Gdy użytkownik znalazł swój kawałek myzyczny, może w niego kliknąć, aby dowiedzieć się o nim więcej informacji.
-W przypadku wyboru artystów, użytkownik otrzymuje dostęp tylko do wyszukiwarki artystów.
+Jest to biblioteka wykorzystująca znakowanie literałów szablonów (dodatek do JavaScript) i potęgę CSS. Styled-Components umożliwia pisanie kodu CSS w celu nadania stylu komponentom frameworka React. Usuwa również mapowanie między komponentami i stylami. Dzięki temu używanie komponentów jako konstrukcji do stylizacji niskiego poziomu nie może być prostsze!
 
-## Wykorzystane biblioteki
+### [Genius API](https://docs.genius.com/)
 
-#### [Styled Components](https://styled-components.com/)
+Genius jest to strona internetowa zawierająca biblotekę najpopularniejszych utworów muzycznych w internecie. Genius zapewnia dostęp do niektórych endpointów swojego internetowego API. Aplikacja wykorzystuje to API do pobierania większości danych o utworach muzycznych i wykonawcach.
 
-Jest to biblioteka wykorzystująca znakowanie literałów szablonów (dodatek do JavaScript) i potęgę CSS. Styled-Components umożliwia pisanie kodu CSS w celu nadania stylu komponentom. Usuwa również mapowanie między komponentami i stylami. Dzięki temu używanie komponentów jako konstrukcji do stylizacji niskiego poziomu nie może być prostsze!
+### [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
 
-#### [Genius](https://docs.genius.com/#/resources-h1)
+Beautiful Soup jest to bibloteka Pythona służąca do wyciągania danych z plików HTML i XML. W niniejszym projekcie została wykorzystana do poszerzenia możliwości Genius API o pobieranie tekstów utworów muzycznych bezpośrednio ze strony [Genius.com](https://genius.com/).
 
-Genius jest to strona internetowa zawierająca biblotekę najpopularniejszych utworów muzycznych w internecie. Genius zapewnia dostęp do swojego API, aby nasza strona w prosty sposób podłączyła się z kontem Genius'a. W ten sposób pozwalając nam na proste wykorzystanie ich end-pointów.
+### [Postman](https://www.postman.com/)
 
-#### [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
+Jest to platforma API do budowania i używania API. Dzięki niej testowaliśmy działanie naszego API, które wykorzystaliśmy w aplikacji.
 
-Beautiful Soup jest to bibloteka Pythona do wyciągania danych z plików HTML i XML.
+## Serwer aplikacji
 
-#### [Postman](https://www.postman.com/)
+Serwer zawiera kilka prostych endpointów, które zostały krótko opisane poniżej.
 
-Jest to platforma API do budowania i używania API. Dzięki niej stworzyliśmy następujące API, które wykorzystaliśmy w aplikacji:
-
-* GET search Genius
-* GET song from Genius
-* GET artist from Genius
-* GET songs by artist from Genius
-* GET track from Spotify
-* GET song lyrics from Genius
-* GET hot tracks from Genius
-
-## API w aplikacji
-
-W celu stworzenia strony przygotowaliśmy następujące end-pointy:
-
-* search
-* songs/<song_id>
-* artists/<artist_id>
-* artists/<artist_id>/songs
-* songs/<song_id>/lyrics
-* hot
-* track
+* search - wyszukiwanie utworów i wykonawców w bazie Genius.com
+* songs/<song_id> - pobieranie szczegółowych informacji o utworze wskazanym przez ID
+* artists/<artist_id> - pobieranie szczegółowych informacji o wykonawcy wskazanym przez ID
+* artists/<artist_id>/songs - pobieranie utworów wykonawcy o wskazanym ID
+* songs/<song_id>/lyrics - pobieranie tekstu utworu o wskazanym ID
+* hot - pobieranie listy najpopularniejszych utworów na stronie Genius.com
