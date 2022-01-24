@@ -21,6 +21,8 @@ GENIUS_API_KEY=<your API key>
 ```
 Podczas testowania aplikacji wykorzystano hosta [RapidAPI](https://rapidapi.com/hub). Jest to serwis, zbierający wiele publicznych API internetowych, w którym można założyć darmowe konto i uzyskać dostęp zarówno do płatnych jak i darmowych API. Zachęcamy użytkownika do rejestracji w serwisie i wygenerowania własnego klucza API, który należy następnie wkleić do pliku konfiguracyjnego we wskazanym miejscu zastępując frazę `<your API key>`.
 
+Dodatkowo w projekcie wykorzystano silnik chromedriver, który tworzy wirtualną instancję przeglądarki internetowej z silnikiem chromium. Jest to konieczne do prawidłowego działania biblioteki Beautiful Soup. Aby umożliwić aplikacji korzystanie z chromedriver należy pobrać [wybraną wersję](https://chromedriver.chromium.org/downloads) aplikacji i umieścić plik `chromedriver.exe` w folderze `api`.
+
 ### Uruchamianie klienta w trybie developerskim
 
 Do uruchomienia skonfigurowanego projektu wystarczy użyć dwóch okien konsoli systemowej. Konsole należy otworzyć w głównym katalogu projektu. do uruchamiania należy użyć menadżera paczek [npm](https://www.npmjs.com/). W jednej konsoli należy uruchomić serwer za pomocą komendy:
